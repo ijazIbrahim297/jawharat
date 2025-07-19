@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JAWHARAT AUTO</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Load layout -->
+  <div id="layout"></div>
+
+  <script>
+    $(function () {
+      // Load layout.html into #layout div
+      $("#layout").load("layout.html", function () {
+        // Load home.html into #content inside the layout
+        $("#CarSitecontent").load("home.html");
+        // Handle menu clicks dynamically
+        $(document).on("click", ".menu-link", function (e) {
+          e.preventDefault(); // Prevent default link behavior
+          const page = $(this).data("page"); // Get page to load
+          $("#CarSitecontent").load(page); // Load content into layout
+        });
+
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
